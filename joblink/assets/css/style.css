@@ -1,0 +1,513 @@
+/* --- JOBLINK STYLESHEET - V2.3 --- */
+/* Se mejora el fondo de la página para un look más profesional */
+
+/* --- 1. VARIABLES Y RESET --- */
+:root {
+    /* Paleta de Colores Institucional */
+    --color-primary: #005A9E;      /* Azul Institucional */
+    --color-secondary: #003366;    /* Azul Oscuro */
+    --color-accent: #FFC425;       /* Amarillo/Dorado */
+    
+    /* Paleta de UI General */
+    --color-background: #F8F9FA;   /* Fondo Gris Claro */
+    --color-surface: #FFFFFF;      /* Superficies (Tarjetas, etc.) */
+    --color-text-primary: #212529; /* Texto Principal (Casi Negro) */
+    --color-text-secondary: #6c757d; /* Texto Secundario (Gris) */
+    --color-border: #dee2e6;       /* Bordes sutiles */
+    --color-success: #198754;      /* Verde para éxito */
+    --color-error: #dc3545;        /* Rojo para errores */
+
+    /* Tipografía */
+    --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    /* Sombras y Bordes */
+    --box-shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --box-shadow-md: 0 4px 8px rgba(0,0,0,0.07);
+    --box-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-base);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    font-size: 16px;
+    /* --- NUEVO: Fondo profesional y sutil --- */
+    background-image: linear-gradient(to top, #f3f4f6 0%, #e9ecef 100%);
+}
+
+/* --- 2. UTILIDADES Y COMPONENTES GENERALES --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    border: 1px solid transparent;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
+.btn-primary:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-md);
+}
+
+.btn-secondary {
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    border-color: var(--color-border);
+}
+.btn-secondary:hover {
+    background-color: #f8f9fa;
+    border-color: #c6c9cc;
+}
+
+.btn-accent {
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+}
+.btn-accent:hover {
+    background-color: #ffcd49;
+    transform: translateY(-2px);
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+    border: 1px solid transparent;
+}
+.alert-success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border-color: #badbcc;
+}
+.alert-error {
+    background-color: #f8d7da;
+    color: #842029;
+    border-color: #f5c2c7;
+}
+
+.page-section {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 40px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 50px;
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius);
+    border: 1px dashed var(--color-border);
+}
+
+/* --- 3. HEADER Y NAVEGACIÓN --- */
+.main-header {
+    background-color: var(--color-surface);
+    padding: 15px 0;
+    box-shadow: var(--box-shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-nav-desktop a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.main-nav-desktop a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.main-nav-desktop a:hover::after {
+    width: 100%;
+}
+
+/* --- 4. HERO SECTION --- */
+.hero {
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-surface);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.search-form {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: var(--box-shadow-lg);
+    border-radius: var(--border-radius);
+}
+
+.search-form input[type="text"] {
+    flex-grow: 1;
+    padding: 15px;
+    border: none;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    font-size: 1rem;
+}
+
+.search-form button {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+/* --- 5. TARJETA DE EMPLEO (JOB CARD) --- */
+.job-card {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-surface);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-sm);
+    margin-bottom: 20px;
+    border: 1px solid var(--color-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-md);
+}
+
+.job-logo {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    display: grid;
+    place-items: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.job-details {
+    flex-grow: 1;
+}
+
+.job-title a {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.job-title a:hover {
+    color: var(--color-primary);
+}
+
+.job-company {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.job-metadata {
+    display: flex;
+    gap: 20px;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.job-metadata span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.job-actions {
+    margin-left: 20px;
+}
+
+/* --- 6. FORMULARIOS Y PÁGINAS DE AUTENTICACIÓN (MEJORADO) --- */
+.auth-wrapper {
+    min-height: 85vh;
+    display: grid;
+    place-items: center;
+    padding: 40px 15px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 450px;
+    background: var(--color-surface);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-lg);
+    border-top: 5px solid var(--color-accent);
+    text-align: center;
+}
+
+.auth-logo {
+    margin-bottom: 20px;
+}
+
+.auth-logo img {
+    height: 40px;
+}
+
+.auth-container h2 {
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+}
+
+.form-container {
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group .fa-solid {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-secondary);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: var(--font-family-base);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group input {
+    padding-left: 40px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 90, 158, 0.2);
+}
+
+.auth-container .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+}
+
+.auth-footer-link {
+    margin-top: 20px;
+}
+
+.auth-footer-link a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-footer-link a:hover {
+    text-decoration: underline;
+}
+
+/* --- 7. PÁGINA DE DETALLE DE OFERTA --- */
+.oferta-detalle-card {
+    background: var(--color-surface);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-md);
+}
+
+.oferta-detalle-card h1 {
+    color: var(--color-secondary);
+    margin-bottom: 5px;
+}
+
+.oferta-detalle-card .empresa {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+}
+
+.oferta-detalle-card hr {
+    border: none;
+    height: 1px;
+    background-color: var(--color-border);
+    margin: 30px 0;
+}
+
+/* --- 8. DASHBOARD Y PÁGINAS INTERNAS --- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+}
+
+.dashboard-nav {
+    background-color: var(--color-surface);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-sm);
+    align-self: start; /* Para que no se estire */
+}
+
+.dashboard-nav a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    border-radius: 6px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.dashboard-nav a:hover, .dashboard-nav a.active {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
+
+.dashboard-content {
+    background-color: var(--color-surface);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-sm);
+}
+
+/* --- 9. FOOTER --- */
+.main-footer {
+    background-color: var(--color-secondary);
+    color: var(--color-surface);
+    padding: 40px 0;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: var(--color-surface);
+    text-decoration: none;
+    margin: 0 10px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+/* --- 10. RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .main-nav-desktop, .user-actions .btn-secondary {
+        display: none; /* Ocultar para menú móvil */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .job-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .job-logo {
+        margin-bottom: 15px;
+    }
+
+    .job-actions {
+        margin-left: 0;
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .job-actions .btn {
+        width: 100%;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
